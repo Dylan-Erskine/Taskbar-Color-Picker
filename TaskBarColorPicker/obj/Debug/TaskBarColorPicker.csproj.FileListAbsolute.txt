@@ -1,0 +1,10 @@
+C:\Users\dsg\Documents\Projects\TaskBarColorPicker\TaskBarColorPicker\bin\Debug\TaskBarColorPicker.exe.config
+C:\Users\dsg\Documents\Projects\TaskBarColorPicker\TaskBarColorPicker\bin\Debug\TaskBarColorPicker.exe
+C:\Users\dsg\Documents\Projects\TaskBarColorPicker\TaskBarColorPicker\bin\Debug\TaskBarColorPicker.pdb
+C:\Users\dsg\Documents\Projects\TaskBarColorPicker\TaskBarColorPicker\obj\Debug\TaskBarColorPicker.csprojResolveAssemblyReference.cache
+C:\Users\dsg\Documents\Projects\TaskBarColorPicker\TaskBarColorPicker\obj\Debug\TaskBarColorPicker.Properties.Resources.resources
+C:\Users\dsg\Documents\Projects\TaskBarColorPicker\TaskBarColorPicker\obj\Debug\TaskBarColorPicker.csproj.GenerateResource.cache
+C:\Users\dsg\Documents\Projects\TaskBarColorPicker\TaskBarColorPicker\obj\Debug\TaskBarColorPicker.csproj.CoreCompileInputs.cache
+C:\Users\dsg\Documents\Projects\TaskBarColorPicker\TaskBarColorPicker\obj\Debug\TaskBarColorPicker.exe
+C:\Users\dsg\Documents\Projects\TaskBarColorPicker\TaskBarColorPicker\obj\Debug\TaskBarColorPicker.pdb
+C:\Users\dsg\Documents\Projects\TaskBarColorPicker\TaskBarColorPicker\obj\Debug\TaskBarColorPicker.BlockInteraction.resources
