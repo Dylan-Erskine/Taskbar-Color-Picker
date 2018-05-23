@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TaskBarColorPicker;
 
 namespace TaskbarColorPicker
 {
@@ -28,37 +29,66 @@ namespace TaskbarColorPicker
             colorPickerIcon.Visible = true;
             colorPickerIcon.MouseClick += new MouseEventHandler(colorPickerIconClicked);
 
+            //Create the context menu and its items
+            ContextMenu contextMenu = new ContextMenu();
+            MenuItem contextItemSettings = new MenuItem();
+            MenuItem contextItemExit = new MenuItem();
+            //Setup the context menu items
+            contextItemSettings.Text = "&Settings";
+            contextItemExit.Text = "&Exit";
+            contextItemSettings.Click += new EventHandler(contextMenuSettings_Click);
+            contextItemExit.Click += new EventHandler(contextMenuExit_Click);
+            //Add the context menu items to the context menu
+            contextMenu.MenuItems.Add(contextItemSettings);
+            contextMenu.MenuItems.Add(contextItemExit);
+
+            colorPickerIcon.ContextMenu = contextMenu;
+
             Application.Run();
+        }
+
+        private static void contextMenuSettings_Click(object sender, System.EventArgs e)
+        {
+            //Show Settings form
+            new Settings().ShowDialog();
+        }
+
+        private static void contextMenuExit_Click(object sender, System.EventArgs e)
+        {
+            //Exit the app
+            Application.Exit();
         }
 
         static List<BlockInteraction> blockerForms = new List<BlockInteraction>();
 
         private static void colorPickerIconClicked(object sender, MouseEventArgs e)
         {
-            foreach (Screen s in Screen.AllScreens)
-            {
-                Rectangle r = new Rectangle();
-                r = Rectangle.Union(r, s.Bounds);
+            if (e.Button == MouseButtons.Left) { 
+                foreach (Screen s in Screen.AllScreens)
+                {
+                    Rectangle r = new Rectangle();
+                    r = Rectangle.Union(r, s.Bounds);
 
-                BlockInteraction blockForm = new BlockInteraction();
-                blockForm.Top = r.Top;
-                blockForm.Left = r.Left;
-                blockForm.Width = r.Width;
-                blockForm.Height = r.Height;
-                blockForm.Show();
+                    BlockInteraction blockForm = new BlockInteraction();
+                    blockForm.Top = r.Top;
+                    blockForm.Left = r.Left;
+                    blockForm.Width = r.Width;
+                    blockForm.Height = r.Height;
+                    blockForm.Show();
 
-                blockerForms.Add(blockForm);
+                    blockerForms.Add(blockForm);
+                }
+
+                MouseHook.Start();
+                MouseHook.MouseAction += mouseEvent;
             }
-
-            MouseHook.Start();
-            MouseHook.MouseAction += mouseEvent;
         }
 
         private static Thread mouseThread;
 
         private static void mouseEvent(object sender, MouseHook.RawMouseEventArgs e)
         {
-            if(e.Message == MouseHook.MouseMessages.WM_LBUTTONDOWN)
+            if(e.Message == MouseHook.MouseMessages.WM_LBUTTONUP)
             {
                 blockerForms.ForEach(b => b.Close());
 
