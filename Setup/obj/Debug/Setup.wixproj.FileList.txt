@@ -1,0 +1,6 @@
+C:\Users\Dylan\Documents\Projects\Taskbar-Color-Picker\Setup\bin\Debug\Setup.wixpdb
+obj\Debug\Product.wixobj
+C:\Users\Dylan\Documents\Projects\Taskbar-Color-Picker\Setup\bin\Debug\Setup.msi
+obj\Debug\Setup.wixproj.BindContentsFileListnull.txt
+obj\Debug\Setup.wixproj.BindOutputsFileListnull.txt
+obj\Debug\Setup.wixproj.BindBuiltOutputsFileListnull.txt

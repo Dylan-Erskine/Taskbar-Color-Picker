@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="Taskbar Color Picker" Language="1033" Version="1.0.0" Manufacturer="Dylan Erskine" UpgradeCode="deb19460-e97f-4d3a-b91e-5247e0931f9b">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of Taskbar Color Picker is already installed." />
+		<MediaTemplate EmbedCab="yes" />
+
+		<Feature Id="ProductFeature" Title="Setup" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+
+    <Feature Id="Startup" Title="Startup" Level="1">
+      <ComponentRef Id="RegistryEntries" />
+    </Feature>
+
+    <CustomAction Id="LaunchApp" Directory="INSTALLFOLDER" ExeCommand="[SystemFolder]cmd.exe /C start TaskBarColorPicker.exe" />
+
+    <InstallExecuteSequence>
+      <Custom Action="LaunchApp" After="InstallFinalize" />
+    </InstallExecuteSequence>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="TaskbarColorPicker" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="TARGETDIR">
+      <Component Id="RegistryEntries" Guid="19a7e632-a6f9-4e37-9a5e-007dedb8e686">
+        <RegistryKey
+        Root="HKCU"
+        Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Run">
+          <RegistryValue Id="TaskplayColorPicker" Name="TaskplayColorPicker" Value="[INSTALLFOLDER]TaskBarColorPicker.exe" Type="string" />
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			 <Component Id="ProductComponent"> 
+      <File Source="$(var.TaskbarColorPicker.TargetPath)" />
+			 </Component> 
+		</ComponentGroup>
+	</Fragment>
+</Wix>

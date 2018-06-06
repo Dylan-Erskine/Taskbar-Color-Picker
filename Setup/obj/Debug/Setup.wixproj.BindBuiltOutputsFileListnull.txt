@@ -1,0 +1,2 @@
+C:\Users\Dylan\Documents\Projects\Taskbar-Color-Picker\Setup\bin\Debug\Setup.msi
+C:\Users\Dylan\Documents\Projects\Taskbar-Color-Picker\Setup\bin\Debug\Setup.wixpdb
