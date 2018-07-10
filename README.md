@@ -1,7 +1,7 @@
 # Taskbar-Color-Picker
 ## Overview
 This is a color picker for windows made in c#.
-It is a light wegiht tool that adds a picker tool to your taskbar allowing you to easily select colors anywhere on your screen.
+It is a light weight tool that adds a picker tool to your taskbar allowing you to easily select colors anywhere on your screen.
 
   * Lightweight
   * Automatically starts on login
